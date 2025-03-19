@@ -1,0 +1,17 @@
+streamlit
+speechrecognition
+gtts
+pytesseract
+pdfplumber
+numpy
+requests
+beautifulsoup4
+pillow
+deep-translator
+ollama
+python-docx
+textblob
+transformers
+torch
+torchaudio
+torchvision

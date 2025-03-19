@@ -1,0 +1,16 @@
+# Ignore all .log files
+*.log
+
+# Ignore node_modules folder (for Node.js projects)
+node_modules/
+
+# Ignore all .env files (environment variable files)
+.env
+
+# Ignore Mac OS system files
+.DS_Store
+
+# Ignore compiled Python files
+*.pyc
+
+.dist/
