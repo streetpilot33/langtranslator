@@ -16,8 +16,7 @@ from gtts.lang import tts_langs
 from textblob import TextBlob  # ✅ Sentiment Analysis & Grammar Correction
 from transformers import pipeline  # ✅ Summarization & Emotion Detection
 
-# ✅ Set Streamlit page config
-st.set_page_config(page_title="AI Language Translator", layout="wide")
+
 
 # ✅ Set Tesseract Path
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
