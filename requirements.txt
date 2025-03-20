@@ -15,4 +15,6 @@ transformers
 torch
 torchaudio
 torchvision
-pyaudio 
+pip install pipwin
+pipwin install pyaudio
+ 
