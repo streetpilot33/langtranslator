@@ -16,6 +16,5 @@ torch
 torchaudio
 torchvision
 pipwi
-pyaudio
 portaudio19-dev
  
