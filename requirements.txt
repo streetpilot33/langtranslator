@@ -15,6 +15,5 @@ transformers
 torch
 torchaudio
 torchvision
-pipwi
-portaudio19-dev
+
  
