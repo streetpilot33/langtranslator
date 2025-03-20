@@ -203,7 +203,7 @@ elif mode == "Camera":
     st.info("📸 Capture an image to extract text and translate it.")
     captured_image = st.camera_input("Take a photo")
     if captured_image:
-        st.image(captured_image, caption="📷 Captured Image", use_column_width=True)
+        st.image(captured_image, caption="📷 Captured Image",use_container_width=True)
         st.session_state.user_input = extract_text_from_image(captured_image)
 
 # ✅ Translation
@@ -221,5 +221,34 @@ if st.session_state.user_input:
     audio_output = text_to_speech(st.session_state.translated_text)
     if audio_output:
         st.audio(audio_output)
+
+        # ✅ Prepare the processed text for download
+processed_text = f"""
+📝 Extracted Text: {st.session_state.user_input}
+
+🔍 Sentiment Analysis: {analyze_sentiment(st.session_state.user_input)}
+🎭 Emotion Detected: {detect_emotion(st.session_state.user_input)}
+📝 Grammar Corrected Text: {correct_grammar(st.session_state.user_input)}
+📌 Summarized Text: {summarize_text(st.session_state.user_input)}
+
+🌍 Translated Text: {st.session_state.translated_text}
+"""
+
+# ✅ Add the Download Button in the Sidebar
+st.sidebar.download_button("⬇ Download Processed Text", processed_text, file_name="processed_text.txt", mime="text/plain")
+# ✅ Add Chatbot Search Bar in Sidebar
+st.sidebar.markdown("## 💬 Ask Our Chatbot")
+chat_query = st.sidebar.text_input("Ask the chatbot:")
+
+if chat_query:
+    try:
+        chatbot_response = ollama.chat(
+            model="mistral",
+            messages=[{"role": "user", "content": chat_query}]
+        )
+        st.sidebar.success(f"🤖 {chatbot_response['message']['content']}")
+    except Exception as e:
+        st.sidebar.error(f"❌ Chatbot Error: {str(e)}")
+
 
 
